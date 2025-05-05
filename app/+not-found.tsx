@@ -1,32 +1,24 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { Link } from "expo-router";
+import { Button, H1, Text, YStack } from "tamagui";
 
 export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen doesn't exist.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
-        </Link>
-      </ThemedView>
-    </>
+    <YStack
+      flex={1}
+      alignItems="center"
+      justifyContent="center"
+      padding="$4"
+      space="$4"
+    >
+      <H1 color="$color">404</H1>
+      <Text fontSize="$6" textAlign="center">
+        Oops! The page you're looking for doesn't exist.
+      </Text>
+      <Link href="/" asChild>
+        <Button theme="active" size="$4">
+          Go Home
+        </Button>
+      </Link>
+    </YStack>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-});
