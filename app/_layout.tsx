@@ -1,17 +1,16 @@
+import { ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
-import { createTamagui, TamaguiProvider } from "tamagui";
-import { defaultConfig } from "@tamagui/config/v4";
 import { StatusBar } from "expo-status-bar";
-const config = createTamagui(defaultConfig);
+import { NAV_THEME } from "~/lib/cosntants";
 
 export default function RootLayout() {
   return (
-    <TamaguiProvider config={config}>
+    <ThemeProvider value={NAV_THEME}>
       <StatusBar style="dark" />
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
-    </TamaguiProvider>
+    </ThemeProvider>
   );
 }
